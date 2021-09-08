@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Greenwich Time Signal (The Pips)",
+  "version": "1.0",
+  "description": "Play the BBC Radio pips every hour.",
+  "homepage_url": "https://github.com/AlbertoDorado/greenwich-time-signal",
+
+  "developer": {
+    "name": "Alberto Dorado",
+    "url": "https://github.com/AlbertoDorado"
+  },
+
+  "icons": {
+    "48": "res/icon-48.png",
+    "96": "res/icon-96.png"
+  },
+
+  "permissions": ["storage"],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "19": "res/icon-19.png",
+      "38": "res/icon-38.png"
+    },
+    "default_title": "Greenwich Time Signal"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "greenwich-time-signal@albertodorado"
+    }
+  }
+}

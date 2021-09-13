@@ -8,7 +8,6 @@ function playRadioPips() {
 }
 
 function checkTime() {
-    updateIcon();
     let date = new Date();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();

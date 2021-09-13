@@ -3,6 +3,7 @@ restoreOptions();
 
 function playRadioPips() {
     var audio = new Audio('res/radio-pips.ogg');
+    audio.volume = 0.5;
     audio.play();
 }
 

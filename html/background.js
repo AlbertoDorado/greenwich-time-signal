@@ -8,15 +8,16 @@ function playRadioPips() {
 }
 
 function checkTime() {
+    if (isEnabled && itsSignalTime()) {
+        playRadioPips();
+    }
+}
+
+function itsSignalTime() {
     let date = new Date();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
-
-    if ((minutes == 59) && (seconds == 55)) {
-        if (isEnabled) {
-            playRadioPips();
-        }
-    }
+    return (minutes == 59) && (seconds == 55);
 }
 
 function updateIcon() {

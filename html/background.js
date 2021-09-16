@@ -1,5 +1,8 @@
 var isEnabled = true;
+const DELAY = -5000;    // The pips starts playing five seconds before the hour changes
 restoreOptions();
+
+window.setTimeout(triggerAlarm, msToNextHour() + DELAY);
 
 function playRadioPips() {
     var audio = new Audio('res/radio-pips.ogg');
@@ -7,17 +10,11 @@ function playRadioPips() {
     audio.play();
 }
 
-function checkTime() {
-    if (isEnabled && itsSignalTime()) {
+function triggerAlarm() {
+    if (isEnabled) {
         playRadioPips();
     }
-}
-
-function itsSignalTime() {
-    let date = new Date();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-    return (minutes == 59) && (seconds == 55);
+    window.setTimeout(triggerAlarm, 3600000);
 }
 
 function updateIcon() {
@@ -66,6 +63,8 @@ function restoreOptions() {
     getting.then(setCurrentChoice, onError);
 }
 
-window.setInterval(checkTime, 1000);
+function msToNextHour() {
+    return (3600000 - new Date().getTime() % 3600000);
+}
 
 browser.browserAction.onClicked.addListener(toggleAudio);
